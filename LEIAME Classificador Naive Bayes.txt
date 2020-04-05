@@ -1,0 +1,116 @@
+https://dataaspirant.com/2017/02/06/naive-bayes-classifier-machine-learning/
+
+
+O classificador Naive Bayes é um algoritmo simples e poderoso para a  tarefa de classificação . Mesmo se estivermos trabalhando em um conjunto de dados com milhões de registros com alguns atributos, sugerimos que você experimente a abordagem Naive Bayes.
+
+Para entender o classificador ingênuo de Bayes, precisamos entender o teorema de Bayes. Então, vamos primeiro discutir o Teorema de Bayes.
+
+O que é o teorema de Bayes?
+Teorema de Bayes em homenagem ao Rev. Thomas Bayes. Trabalha na probabilidade condicional . Probabilidade condicional é a probabilidade de que algo aconteça, dado que algo mais já ocorreu . Usando a probabilidade condicional, podemos calcular a probabilidade de um evento usando seu conhecimento anterior.
+
+Abaixo está a fórmula para calcular a probabilidade condicional.
+P(H|E) = [P(H|E)*P(H)]/P(E)
+
+
+Onde
+
+P (H) é a probabilidade da hipótese H ser verdadeira. Isso é conhecido como a probabilidade anterior.
+P (E) é a probabilidade da evidência (independentemente da hipótese).
+P (E | H) é a probabilidade da evidência, dado que a hipótese é verdadeira.
+P (H | E) é a probabilidade da hipótese, dado que a evidência está lá.
+
+
+
+Exemplo:
+
+Em um laboratório estão realizando testes de uma doença.Eles garantem que seus resultados têm 99% de acurácia:
+
+
+
+-Se você têm a doença, os testes dão positivo 99% das vezes
+
+-Se você não tem a doença, os testes dão negativo 99% das vezes
+
+-Se 3% de todas as pessoas têm a doença e o teste der positivo, qual a probabilidade de você ter a doença?
+
+
+Para resolver o problema acima, teremos que usar a probabilidade condicional.
+
+Probabilidade de pessoas que sofrem de Doença D, P (D) = 0,03 = 3% 
+Probabilidade que o teste dá resultado “positivo” e paciente tem a doença, P (Pos | D) = 0,99 = 99%
+
+Probabilidade de pessoas que não sofrem de Doença D, P (~ D) = 0,97 = 97% 
+Probabilidade que o teste dá resultado “positivo” e o paciente não tem a doença, P (Pos | ~ D) = 0,01 = 1%
+
+
+
+Para calcular a probabilidade de o paciente realmente ter a doença, ou seja, P(D | Pos) , 
+usaremos o teorema de Bayes:
+
+P( D | Pos) = (P(Pos | D) * P(D)) / P(Pos)
+ 
+ 
+ 
+ 
+ Primeiro vamos achar o P(Pos):
+ P(Pos) = P(D, pos) + P( ~D, pos)
+ = P(pos|D)*P(D) + P(pos|~D)*P(~D)
+= 0.99 * 0.03 + 0.01 * 0.97
+= 0.0297 + 0.0097
+= 0.0394
+
+
+Vamos Calcular, P( D | Pos) = (P(Pos | D) * P(D)) / P(Pos)
+= (0.99 * 0.03) / 0.0394
+= 0.753807107
+
+
+Então, existe aproximadamente 75% de chance do paciente sofrer de alguma doença.
+
+
+ 
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+Classificador Naive Bayes
+ 
+Naive Bayes é um tipo de classificador que usa o Teorema de Bayes. Ele prevê probabilidades de associação para cada classe, como a probabilidade de que determinado registro ou ponto de dados pertença a uma determinada classe. A classe com maior probabilidade é considerada como a classe mais provável. Isso também é conhecido como Maximum A Posteriori (MAP) .
+
+MAP (H)
+= máx (P (H | E)) 
+= máx ((P (E | H) * P (H)) / P (E)) 
+= máx (P (E | H) * P (H) )
+
+P (E) é uma probabilidade de evidência e é usada para normalizar o resultado. Permanece assim mesmo, removendo isto não afetará.
+
+O classificador Naive Bayes assume que todos os recursos  não estão relacionados entre si. A presença ou ausência de um recurso não influencia a presença ou ausência de qualquer outro recurso.
+
+
+ (H | Múltiplas Evidências) = P (E1 | H) * P (E2 | H) …… * P (En | H) * P (H) / P 
+ 
+ 
+ Tipos de Algoritmo Naive Bayes:
+
+Gaussian Naive Bayes:
+     
+ Quando os valores dos atributos são contínuos, é assumido que os valores associados a cada classe são distribuídos de acordo com Gaussian, ou seja, distribuição normal.
+
+OBS: A distribuição normal com média nula e desvio padrão unitário é chamada de distribuição normal centrada e reduzida ou de distribuição normal padrão. Quando uma variável aleatória X segue uma distribuição normal, ela é chamada de gaussiana ou de normal. Comumente é usada a notação com a variância. A curva de densidade é chamada de curva de Gauss ou de curva em forma de sino.
+
+1) Primeiro Passo: Segmentamos nossos valores pela classe e calculamos a média e variancia de cada classe
+2) Segundo Passo: Observamos a curva de densidade e verificamos se é gaussiana e se é aderente ao Gaussian Naive Bayes
+
+
+
+
+
+Outros tipos:
+
+MultinomialNB
+Bayes Naive MultiNomial é preferível usar em dados que é distribuído multinomialmente. É um dos algoritmos clássicos padrão. Qual é usado na categorização de texto (classificação). Cada evento na classificação de texto representa a ocorrência de uma palavra em um documento.
+
+
+BernoulliNB
+Bernoulli Naive Bayes é usado nos dados que são distribuídos de acordo com as distribuições multivariadas de Bernoulli.ie, vários recursos podem estar presentes, mas cada um é assumido como sendo uma variável de valor binário (Bernoulli, booleano). Portanto, requer que os recursos sejam avaliados em binários.
+
